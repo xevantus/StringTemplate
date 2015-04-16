@@ -5,7 +5,7 @@ solution: StringTemplate.sln
 install:
   - sudo apt-get install -y gtk-sharp2
   - nuget restore StringTemplate.sln
-  - nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
+  - nuget install xunit.runners -OutputDirectory testrunner
 script:
   - xbuild /p:Configuration=Release StringTemplate.sln
   - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./StringTemplate.Tests/bin/Release/StringTemplate.Tests.dll
