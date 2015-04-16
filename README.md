@@ -35,7 +35,7 @@ String Template supports a repeat directive that will iterate up to a given numb
 
 Syntax:
 ```
-{$repeat:iteration variable:join string} {$repeat:$end}
+{$repeat:iteration variable:join string}Repeated Text Or {Interpolated} Variables{$repeat:$end}
 ```
 ### Variables
 Variables within the Repeat directive are seperated by a ":" character, as such, any colons used within parameters will be seen as a variable end.
@@ -70,12 +70,46 @@ String Template supports the index directive.  Within nested repeat statements, 
 
 Syntax:
 ```
-{$index}
+{$repeat:$10}{$index}{$repeat:$end}
 ```
 #### Current
 A repeater using an Interpolated Ienumerable can use the Current directive to access the current object in the repeater.
 
 Syntax:
 ```
-{$current}
+{$repeat:$10}{$current}{$repeat:$end}
 ```
+### Nested Repeats
+String Template parses the interior of a repeat as if it were a new string to be interpolated.  Because of this, repeats can be nested indefinately within other repeats.
+```
+{$repeat:$10}{$current}{$repeat:$10}{$current}{$repeat:$end}{$repeat:$end}
+```
+Note: $current and $index will interpolate to the most inner repeat they are aware of.  The system does not currently support using the variables of a higher level repeat.
+
+## Caching
+The String Template Library caches both parsed expressions and Interpolation Getter functions in order to speed up performance over multiple calls.  Any given string will only be parsed into expressions the first time it is encountered.  
+
+The same process is followed with Property getters.  String Template uses reflection to get the Property or Field Get methods.  Since reflection is extremely expensive, these getters are cached at both a Type and request level. For instance, consider the following classes:
+```c#
+class TestClass1
+{
+	public TestClass2 Test1;
+
+	public string Test2 { get; set; }
+}
+class TestClass2
+{
+	public int Test1;
+}
+...
+StringTemplate.Format( "{0.Test1.Test1} {Test2} {1} {2}", testClass, "test", 1 );
+```
+The Cache after this request would contain the following keys, with their associated getter functions :
+
+| Type | Request |
+|------|---------|
+| TestClass1 | Test2 |
+| TestClass1 | Test1.Test1 |
+| TestClass2 | Test1 |
+
+This allows lookup times to be independent of interpolate chain length.
