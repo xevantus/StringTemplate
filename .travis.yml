@@ -9,3 +9,4 @@ install:
  script:
   - xbuild /p:Configuration=Release StringTemplate.sln
   - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./StringTemplate.Tests/bin/Release/StringTemplate.Tests.dll
+
