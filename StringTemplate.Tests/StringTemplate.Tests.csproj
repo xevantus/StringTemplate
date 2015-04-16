@@ -10,7 +10,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>StringTemplate.Tests</RootNamespace>
-    <AssemblyName>StringTemplateTests</AssemblyName>
+    <AssemblyName>StringTemplate.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>3a966049</NuGetPackageImportStamp>

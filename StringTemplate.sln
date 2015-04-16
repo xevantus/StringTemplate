@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringTemplate", "StringTem
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringTemplate.Demo", "StringTemplate.Demo\StringTemplate.Demo.csproj", "{F871AF66-4EFD-4CD2-9DC0-6E324F1393F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringTemplate.Tests", "StringTemplateTests\StringTemplate.Tests.csproj", "{F990192C-4656-48F4-812F-CA41255A228D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringTemplate.Tests", "StringTemplate.Tests\StringTemplate.Tests.csproj", "{F990192C-4656-48F4-812F-CA41255A228D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
