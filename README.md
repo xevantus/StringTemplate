@@ -1,4 +1,4 @@
-# StringTemplate
+# StringTemplate ![travis-build](https://travis-ci.org/xevantus/StringTemplate.svg?branch=master)
 String interpolation and data templating for .NET
 
 # How it works
