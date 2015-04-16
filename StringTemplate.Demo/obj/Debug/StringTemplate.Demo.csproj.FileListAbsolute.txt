@@ -1,0 +1,10 @@
+c:\users\cfrancis2\documents\visual studio 2013\Projects\StringTemplate\StringTemplate.Demo\bin\Debug\StringTemplate.Demo.exe.config
+c:\users\cfrancis2\documents\visual studio 2013\Projects\StringTemplate\StringTemplate.Demo\bin\Debug\StringTemplate.Demo.exe
+c:\users\cfrancis2\documents\visual studio 2013\Projects\StringTemplate\StringTemplate.Demo\bin\Debug\StringTemplate.Demo.pdb
+c:\users\cfrancis2\documents\visual studio 2013\Projects\StringTemplate\StringTemplate.Demo\bin\Debug\StringTemplate.dll
+c:\users\cfrancis2\documents\visual studio 2013\Projects\StringTemplate\StringTemplate.Demo\bin\Debug\StringTemplate.pdb
+c:\users\cfrancis2\documents\visual studio 2013\Projects\StringTemplate\StringTemplate.Demo\obj\Debug\StringTemplate.Demo.csprojResolveAssemblyReference.cache
+c:\users\cfrancis2\documents\visual studio 2013\Projects\StringTemplate\StringTemplate.Demo\obj\Debug\StringTemplate.Demo.exe
+c:\users\cfrancis2\documents\visual studio 2013\Projects\StringTemplate\StringTemplate.Demo\obj\Debug\StringTemplate.Demo.pdb
+c:\users\cfrancis2\documents\visual studio 2013\Projects\StringTemplate\StringTemplate.Demo\bin\Debug\System.Collections.Immutable.dll
+c:\users\cfrancis2\documents\visual studio 2013\Projects\StringTemplate\StringTemplate.Demo\bin\Debug\System.Collections.Immutable.xml

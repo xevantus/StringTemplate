@@ -1,0 +1,9 @@
+c:\users\cfrancis2\documents\visual studio 2013\Projects\StringTemplate\StringTemplate.Tests\bin\Debug\StringTemplate.Tests.dll
+c:\users\cfrancis2\documents\visual studio 2013\Projects\StringTemplate\StringTemplate.Tests\bin\Debug\StringTemplate.Tests.pdb
+c:\users\cfrancis2\documents\visual studio 2013\Projects\StringTemplate\StringTemplate.Tests\bin\Debug\StringTemplate.dll
+c:\users\cfrancis2\documents\visual studio 2013\Projects\StringTemplate\StringTemplate.Tests\bin\Debug\System.Collections.Immutable.dll
+c:\users\cfrancis2\documents\visual studio 2013\Projects\StringTemplate\StringTemplate.Tests\bin\Debug\StringTemplate.pdb
+c:\users\cfrancis2\documents\visual studio 2013\Projects\StringTemplate\StringTemplate.Tests\bin\Debug\System.Collections.Immutable.xml
+c:\users\cfrancis2\documents\visual studio 2013\Projects\StringTemplate\StringTemplate.Tests\obj\Debug\StringTemplate.Tests.csprojResolveAssemblyReference.cache
+c:\users\cfrancis2\documents\visual studio 2013\Projects\StringTemplate\StringTemplate.Tests\obj\Debug\StringTemplate.Tests.dll
+c:\users\cfrancis2\documents\visual studio 2013\Projects\StringTemplate\StringTemplate.Tests\obj\Debug\StringTemplate.Tests.pdb
