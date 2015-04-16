@@ -8,3 +8,13 @@ c:\users\cfrancis2\documents\visual studio 2013\Projects\StringTemplate\StringTe
 c:\users\cfrancis2\documents\visual studio 2013\Projects\StringTemplate\StringTemplate.Demo\obj\Debug\StringTemplate.Demo.pdb
 c:\users\cfrancis2\documents\visual studio 2013\Projects\StringTemplate\StringTemplate.Demo\bin\Debug\System.Collections.Immutable.dll
 c:\users\cfrancis2\documents\visual studio 2013\Projects\StringTemplate\StringTemplate.Demo\bin\Debug\System.Collections.Immutable.xml
+J:\GitHub\StringTemplate\StringTemplate\StringTemplate.Demo\bin\Debug\StringTemplate.Demo.exe.config
+J:\GitHub\StringTemplate\StringTemplate\StringTemplate.Demo\bin\Debug\StringTemplate.Demo.exe
+J:\GitHub\StringTemplate\StringTemplate\StringTemplate.Demo\bin\Debug\StringTemplate.Demo.pdb
+J:\GitHub\StringTemplate\StringTemplate\StringTemplate.Demo\bin\Debug\StringTemplate.dll
+J:\GitHub\StringTemplate\StringTemplate\StringTemplate.Demo\bin\Debug\System.Collections.Immutable.dll
+J:\GitHub\StringTemplate\StringTemplate\StringTemplate.Demo\bin\Debug\StringTemplate.pdb
+J:\GitHub\StringTemplate\StringTemplate\StringTemplate.Demo\bin\Debug\System.Collections.Immutable.xml
+J:\GitHub\StringTemplate\StringTemplate\StringTemplate.Demo\obj\Debug\StringTemplate.Demo.csprojResolveAssemblyReference.cache
+J:\GitHub\StringTemplate\StringTemplate\StringTemplate.Demo\obj\Debug\StringTemplate.Demo.exe
+J:\GitHub\StringTemplate\StringTemplate\StringTemplate.Demo\obj\Debug\StringTemplate.Demo.pdb
