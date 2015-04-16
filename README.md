@@ -30,21 +30,34 @@ StringTemplate is also capable of mising indexed parameters with interpolated pa
 //Outputs 10 testString test 1
 var output = "{0.Test1.Test1} {Test2} {1} {2}".SFormat( testClass, "test", 1 );
 ```
-## Repeater Directive
-String Template supports a repeater directive.
+## Repeat Directive
+String Template supports a repeat directive that will iterate up to a given number of times, or iterate through a collection.
+
 Syntax:
 ```
-{$repeat:(Interpolated Int|Interpolated IEnumerable|$int):join string} {$repeat:$end}
+{$repeat:iteration variable:join string} {$repeat:$end}
 ```
+### Variables
+Variables within the Repeat directive are seperated by a ":" character, as such, any colons used within parameters will be seen as a variable end.
+#### Iteration Variable
+The Repeat directive accepts three different forms for an iteration variable.
+|Type | Example | Description |
+|--------|------------|----------|
+|Static Int | {$repeat:$10}| Static ints require the "$" character, or will be interpolated as the index of an object to interpolate.|
+|Interpolated Object| {$repeat:Count}, {$repeat:0.Count} | The same interpolation rules apply to these variables that apply to normal interpolation. |
+|Interpolate IEnumerable | {$repeat:Array} | If the interpolated variable used implements IEnumerable, the repeat loop will treat the directive as a "for-each" loop |
+
 ### Repeater Sub Directives
 #### Index
 String Template supports the index directive.  Within nested repeat statements, this will only get the inner most repeat's index.
+
 Syntax:
 ```
 {$index}
 ```
 #### Current
-A repeater using an Interpolated Ienumerable can use the Current directive to access the current object in the repeater
+A repeater using an Interpolated Ienumerable can use the Current directive to access the current object in the repeater.
+
 Syntax:
 ```
 {$current}
