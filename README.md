@@ -41,12 +41,29 @@ Syntax:
 Variables within the Repeat directive are seperated by a ":" character, as such, any colons used within parameters will be seen as a variable end.
 #### Iteration Variable
 The Repeat directive accepts three different forms for an iteration variable.
-|Type | Example | Description |
-|--------|------------|----------|
-|Static Int | {$repeat:$10}| Static ints require the "$" character, or will be interpolated as the index of an object to interpolate.|
-|Interpolated Object| {$repeat:Count}, {$repeat:0.Count} | The same interpolation rules apply to these variables that apply to normal interpolation. |
-|Interpolate IEnumerable | {$repeat:Array} | If the interpolated variable used implements IEnumerable, the repeat loop will treat the directive as a "for-each" loop |
 
+
+##### Static Int
+```
+{$repeat:$10}
+```
+Static ints require the "$" character, or will be interpolated as the index of an object to interpolate.
+##### Interpolated Object
+```
+{$repeat:Count}, {$repeat:0.Count} 
+```
+The same interpolation rules apply to these variables that apply to normal interpolation. 
+##### Interpolate IEnumerable
+```
+{$repeat:Array}
+```
+If the interpolated variable used implements IEnumerable, the repeat loop will treat the directive as a "for-each" loop
+
+#### Join String (Optional)
+```
+{$repeat:$10:,}
+```
+The Join String will be used to join the iterations together when the string is re-compiled.
 ### Repeater Sub Directives
 #### Index
 String Template supports the index directive.  Within nested repeat statements, this will only get the inner most repeat's index.
