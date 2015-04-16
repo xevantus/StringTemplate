@@ -1,0 +1,10 @@
+J:\GitHub\StringTemplate\StringTemplate\StringTemplate.Demo\bin\Release\StringTemplate.Demo.exe.config
+J:\GitHub\StringTemplate\StringTemplate\StringTemplate.Demo\bin\Release\StringTemplate.Demo.exe
+J:\GitHub\StringTemplate\StringTemplate\StringTemplate.Demo\bin\Release\StringTemplate.Demo.pdb
+J:\GitHub\StringTemplate\StringTemplate\StringTemplate.Demo\bin\Release\StringTemplate.dll
+J:\GitHub\StringTemplate\StringTemplate\StringTemplate.Demo\bin\Release\System.Collections.Immutable.dll
+J:\GitHub\StringTemplate\StringTemplate\StringTemplate.Demo\bin\Release\StringTemplate.pdb
+J:\GitHub\StringTemplate\StringTemplate\StringTemplate.Demo\bin\Release\System.Collections.Immutable.xml
+J:\GitHub\StringTemplate\StringTemplate\StringTemplate.Demo\obj\Release\StringTemplate.Demo.csprojResolveAssemblyReference.cache
+J:\GitHub\StringTemplate\StringTemplate\StringTemplate.Demo\obj\Release\StringTemplate.Demo.exe
+J:\GitHub\StringTemplate\StringTemplate\StringTemplate.Demo\obj\Release\StringTemplate.Demo.pdb
