@@ -11,3 +11,4 @@ J:\GitHub\StringTemplate\StringTemplate\StringTemplate\bin\Debug\System.Collecti
 J:\GitHub\StringTemplate\StringTemplate\StringTemplate\bin\Debug\System.Collections.Immutable.xml
 J:\GitHub\StringTemplate\StringTemplate\StringTemplate\obj\Debug\StringTemplate.dll
 J:\GitHub\StringTemplate\StringTemplate\StringTemplate\obj\Debug\StringTemplate.pdb
+J:\GitHub\StringTemplate\StringTemplate\StringTemplate\obj\Debug\StringTemplate.csprojResolveAssemblyReference.cache
