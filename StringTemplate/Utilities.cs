@@ -10,7 +10,11 @@ namespace StringTemplate
 	{
 		public static IEnumerable<string> TokenizeString(this string source, char token = '.', StringSplitOptions options = StringSplitOptions.RemoveEmptyEntries)
 		{
-			return source.Split(new char[]{token}, options);
+			var tokens = source.Split(new char[]{token}, options).AsEnumerable();
+
+			tokens = tokens.Select(x => x.Last() == '\\' ? x + token : x);
+
+			return tokens;
 		}
 	}
 }

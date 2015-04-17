@@ -25,7 +25,7 @@ testClass.Test2 = "testString";
 var output = "{Test1.Test1} {Test2}".SFormat( testClass );
 ```
 ## Mixed Interpolation
-StringTemplate is also capable of mising indexed parameters with interpolated parameters.
+StringTemplate is also capable of using indexed parameters with interpolated parameters.
 ```c#
 //Outputs 10 testString test 1
 var output = "{0.Test1.Test1} {Test2} {1} {2}".SFormat( testClass, "test", 1 );
@@ -38,7 +38,7 @@ Syntax:
 {$repeat:iteration variable:join string}Repeated Text Or {Interpolated} Variables{$repeat:$end}
 ```
 ### Variables
-Variables within the Repeat directive are seperated by a ":" character, as such, any colons used within parameters will be seen as a variable end.
+Variables within the Repeat directive are separated by a ":" character, as such, any colons used within parameters will be seen as a variable end.  To use a colon in the parameter, escape it as "\:"
 #### Iteration Variable
 The Repeat directive accepts three different forms for an iteration variable.
 
@@ -79,12 +79,23 @@ Syntax:
 ```
 {$repeat:$10}{$current}{$repeat:$end}
 ```
+#### Parent
+While inside nested repeat statements, you can access the $current and $index parameters of higher level $repeats by using the $parent command.
+
+Syntax:
+```
+{$repeat:$10}{$current}{$repeat:$10}{$parent:$current}{$repeat:$end}{$repeat:$end}
+```
+Parent commands can also be stacked to go up as many levels as needed.
+```
+{$parent:$parent:$current}
+```
 ### Nested Repeats
 String Template parses the interior of a repeat as if it were a new string to be interpolated.  Because of this, repeats can be nested indefinately within other repeats.
 ```
 {$repeat:$10}{$current}{$repeat:$10}{$current}{$repeat:$end}{$repeat:$end}
 ```
-Note: $current and $index will interpolate to the most inner repeat they are aware of.  The system does not currently support using the variables of a higher level repeat.
+Note: $current and $index will interpolate to the most inner repeat they are aware of. To get higher levels, use the "$parent" command.
 
 ## Caching
 The String Template Library caches both parsed expressions and Interpolation Getter functions in order to speed up performance over multiple calls.  Any given string will only be parsed into expressions the first time it is encountered.  

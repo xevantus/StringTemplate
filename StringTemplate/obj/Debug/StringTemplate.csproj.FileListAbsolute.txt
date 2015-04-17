@@ -9,6 +9,5 @@ J:\GitHub\StringTemplate\StringTemplate\StringTemplate\bin\Debug\StringTemplate.
 J:\GitHub\StringTemplate\StringTemplate\StringTemplate\bin\Debug\StringTemplate.pdb
 J:\GitHub\StringTemplate\StringTemplate\StringTemplate\bin\Debug\System.Collections.Immutable.dll
 J:\GitHub\StringTemplate\StringTemplate\StringTemplate\bin\Debug\System.Collections.Immutable.xml
-J:\GitHub\StringTemplate\StringTemplate\StringTemplate\obj\Debug\StringTemplate.csprojResolveAssemblyReference.cache
 J:\GitHub\StringTemplate\StringTemplate\StringTemplate\obj\Debug\StringTemplate.dll
 J:\GitHub\StringTemplate\StringTemplate\StringTemplate\obj\Debug\StringTemplate.pdb

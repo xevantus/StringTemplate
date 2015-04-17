@@ -51,6 +51,11 @@
     <Compile Include="Cache\ObjectGetCache.cs" />
     <Compile Include="Cache\TemplateProcessor.cs" />
     <Compile Include="Expressions\CommandExpression.cs" />
+    <Compile Include="Expressions\Commands\CurrentCommand.cs" />
+    <Compile Include="Expressions\Commands\IndexCommand.cs" />
+    <Compile Include="Expressions\Commands\IParentedCommand.cs" />
+    <Compile Include="Expressions\Commands\ParentCommand.cs" />
+    <Compile Include="Expressions\Commands\RepeatCommand.cs" />
     <Compile Include="Expressions\FormatExpression.cs" />
     <Compile Include="Expressions\LiteralExpression.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

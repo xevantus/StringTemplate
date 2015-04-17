@@ -177,7 +177,21 @@ namespace StringTemplate.Tests
 
 			Assert.Equal("1 testString", output);
 		}
+		[Fact]
+		public void StringTemplate_Repeater_NestedIterator_ParentCurrent()
+		{
+			var output = StringTemplate.Format("{$repeat:ParentIterator}{$repeat:Iteratior}{$parent:$current}{$repeat:$end}{$repeat:$end}", new { ParentIterator = new int[] { 0, 0, 0, 0, 0 }, Iteratior = new int[] { 1, 2, 3, 4, 5 } });
 
+			Assert.Equal("0000000000000000000000000", output);
+		}
+
+		[Fact]
+		public void StringTemplate_Repeater_NestedIterator_ParentIndex()
+		{
+			var output = StringTemplate.Format("{$repeat:ParentIterator}{$repeat:Iteratior}{$parent:$index}{$repeat:$end}{$repeat:$end}", new { ParentIterator = new int[] { 0, 0, 0 }, Iteratior = new int[] { 1, 2, 3, 4, 5 } });
+
+			Assert.Equal("000001111122222", output);
+		}
 
 
 		private class TestClass1

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
+using StringTemplate.Expressions.Commands;
 
 namespace StringTemplate
 {
@@ -17,9 +18,9 @@ namespace StringTemplate
 
 		public string Parameters { get; private set; }
 
-		private Command CommandData { get; set; }
+		internal Command CommandData { get; set; }
 
-		private IEnumerable<ITextExpression> _ParsedExpressions { get; set; }
+		internal IEnumerable<ITextExpression> ParsedExpressions { get; set; }
 
 		public ITextExpression Parent { get; set; }
 
@@ -130,8 +131,8 @@ namespace StringTemplate
 
 		public string Eval( Cache.TemplateProcessor cache, params object[] objs )
 		{
-			if( _ParsedExpressions == null )
-				_ParsedExpressions = cache.ExpressionCache.GetOrAdd( Expression, this );
+			if( ParsedExpressions == null )
+				ParsedExpressions = cache.ExpressionCache.GetOrAdd( Expression, this );
 
 			var evaluatedExpression = CommandData.ExecuteCommand( this, cache, objs );
 
@@ -139,7 +140,7 @@ namespace StringTemplate
 		}
 
 
-		private void SetParameter( string key, object obj )
+		internal void SetParameter( string key, object obj )
 		{
 			if( _DataCache.ContainsKey( key ) )
 			{
@@ -151,7 +152,7 @@ namespace StringTemplate
 			}
 		}
 
-		private object GetParameter( string key )
+		internal object GetParameter( string key )
 		{
 			if( _DataCache.ContainsKey( key ) )
 			{
@@ -162,137 +163,15 @@ namespace StringTemplate
 		}
 
 
-		private static IEnumerable<Command> GetCommands()
+		internal static IEnumerable<Command> GetCommands()
 		{
-			yield return new Command
-								{
-									CommandString = CommandPrefix + "repeat",
-									EndCommand = CommandPrefix + "repeat:" + CommandPrefix + "end",
-									HasEndCommand = true,
-									ExecuteCommand = ( parent, cache, objs ) =>
-									{
-										var splitParams = parent.Parameters.TokenizeString(':', StringSplitOptions.None);
-										var param = splitParams.First();
-
-										int? iterations = (int?) parent.GetParameter( "Iterations" );
-
-										Func<object, object> enumGet = (Func<object, object>) parent.GetParameter( "Enumerator" );
-
-										int? objIndex = (int?) parent.GetParameter( "ObjectIndex" );
-
-										string joinCharacter = ((string)parent.GetParameter("Join")) ?? string.Empty;
-
-										if( iterations == null && enumGet == null )
-										{
-											
-											joinCharacter = splitParams.Skip(1).FirstOrDefault() ?? string.Empty;
-
-											parent.SetParameter("Join", joinCharacter);
-
-											if( param[0] == CommandPrefix )
-											{
-												param = param.Substring( 1 );
-												iterations = int.Parse( param );
-
-												parent.SetParameter( "Iterations", iterations );
-											}
-											else
-											{
-												var exp = new FormatExpression( string.Format( "{{{0}}}", param ) ).GetFunctionFromCache( cache, objs );
-
-												var splitParam = param.TokenizeString();
-
-												var index = 0;
-
-												int.TryParse( splitParam.First(), out index );
-
-												var checkObj = exp( objs[index] );
-
-												if( checkObj is IEnumerable )
-												{
-													parent.SetParameter( "Enumerator", exp );
-													enumGet = exp;
-													parent.SetParameter( "ObjectIndex", index );
-													objIndex = index;
-												}
-												else
-												{
-													iterations = (int) checkObj;
-													parent.SetParameter( "Iterations", iterations );
-												}
-											}
-										}
-
-										
-										List<string> evaluatedExpressions = new List<string>();
-										parent.CommandData.Reset();
-										if( iterations != null )
-										{
-											for( int i = 0; i < iterations; i++ )
-											{
-												parent.CommandData.SetParameter( "index", i );
-
-												evaluatedExpressions.Add(string.Join( string.Empty, parent._ParsedExpressions.Select( x => x.Eval( cache, objs ) ) ) );
-
-											}
-										}
-										else
-										{
-											var count = 0;
-											foreach( var obj in ( (IEnumerable) enumGet( objs[objIndex.Value] ) ) )
-											{
-												parent.CommandData.SetParameter( "index", count );
-												parent.CommandData.SetParameter( "current", obj );
-												evaluatedExpressions.Add(string.Join( string.Empty, parent._ParsedExpressions.Select( x => x.Eval( cache, objs ) ) ));
-
-												count++;
-											}
-										}
-
-										return string.Join(joinCharacter, evaluatedExpressions);
-									}
-								};
-			yield return new Command
-								{
-									CommandString = CommandPrefix + "index",
-									HasEndCommand = false,
-									ExecuteCommand = ( parent, cache, objs ) =>
-									{
-										var p = parent.Parent;
-
-										while( !( p is CommandExpression ) )
-										{
-											p = p.Parent;
-										}
-
-										var cmd = p as CommandExpression;
-
-										return cmd.CommandData.GetParameter( "index" ).ToString();
-
-									}
-								};
-			yield return new Command
-								{
-									CommandString = CommandPrefix + "current",
-									HasEndCommand = false,
-									ExecuteCommand = ( parent, cache, objs ) =>
-									{
-										var p = parent.Parent;
-
-										while( !( p is CommandExpression ) )
-										{
-											p = p.Parent;
-										}
-
-										var cmd = p as CommandExpression;
-
-										return cmd.CommandData.GetParameter( "current" ).ToString();
-
-									}
-								};
+			yield return new RepeatCommand();
+			yield return new IndexCommand();
+			yield return new CurrentCommand();
+			yield return new ParentCommand();
 		}
 
-		private class Command
+		internal class Command
 		{
 			public string CommandString { get; set; }
 
